@@ -17,8 +17,6 @@ symlink("/system/lib/libjni_systemuitools.so", "/system/priv-app/SystemUITools/l
 symlink("/system/lib/libnative_glrenderer.so", "/system/priv-app/SystemUI/lib/arm/libnative_glrenderer.so",
         "/system/priv-app/SystemUITools/lib/arm/libnative_glrenderer.so");
 symlink("/system/lib/modules/pronto/pronto_wlan.ko", "/system/lib/modules/wlan.ko");
-symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
-symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("app_process32", "/system/bin/app_process");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
@@ -414,36 +412,18 @@ show_progress(0.050000, 5);
 package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 show_progress(0.200000, 10);
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data", "");
+delete_recursive("/system/priv-app");
+delete_recursive("/system/fonts");
 package_extract_dir("data", "/data");
-symlink("/data/sys-app", "/system/app");
-symlink("/system/lib/libIvw40.so", "/data/sys-app/IflytekSpeechService/lib/arm/libIvw40.so");
-symlink("/system/lib/libTmsdk-2.0.8-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libTmsdk-2.0.8-mfr.so");
-symlink("/system/lib/libams-1.1.7-m-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libams-1.1.7-m-mfr.so");
-symlink("/system/lib/libams-1.1.7-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libams-1.1.7-mfr.so");
-symlink("/system/lib/libbluetooth_jni.so", "/data/sys-app/Bluetooth/lib/arm/libbluetooth_jni.so");
-symlink("/system/lib/libdce-1.1.6-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libdce-1.1.6-mfr.so");
-symlink("/system/lib/libipc_pref.527.1.so", "/data/sys-app/MzSecurity/lib/arm/libipc_pref.527.1.so");
-symlink("/system/lib/libjni_pacprocessor.so", "/data/sys-app/PacProcessor/lib/arm/libjni_pacprocessor.so");
-symlink("/system/lib/libmobilesafe360-sdk-jni-524.2.so", "/data/sys-app/MzSecurity/lib/arm/libmobilesafe360-sdk-jni-524.2.so");
-symlink("/system/lib/libnfc_nci_jni.so", "/data/sys-app/NfcNci/lib/arm/libnfc_nci_jni.so");
-symlink("/system/lib/libprintspooler_jni.so", "/data/sys-app/PrintSpooler/lib/arm/libprintspooler_jni.so");
-symlink("/system/lib/libttscompat.so", "/data/sys-app/PicoTts/lib/arm/libttscompat.so");
-symlink("/system/lib/libttspico.so", "/data/sys-app/PicoTts/lib/arm/libttspico.so");
-symlink("/system/lib/libttssuitemsc.so", "/data/sys-app/IflytekSpeechService/lib/arm/libttssuitemsc.so");
-symlink("/system/lib/libupdate-jni-1.0.1.2002.so", "/data/sys-app/MzSecurity/lib/arm/libupdate-jni-1.0.1.2002.so");
+symlink("/data/sys-fonts", "/system/fonts");
+symlink("/data/sys-priv-app", "/system/priv-app");
+symlink("Roboto-Bold.ttf", "/data/sys-fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/data/sys-fonts/DroidSans.ttf");
+symlink("/system/lib/libIvw40.so", "/data/sys-priv-app/IflytekSpeechService/lib/arm/libIvw40.so");
+symlink("/system/lib/libttssuitemsc.so", "/data/sys-priv-app/IflytekSpeechService/lib/arm/libttssuitemsc.so");
 symlink("/system/lib/libwebviewchromium.so", "/data/sys-app/webview/lib/arm/libwebviewchromium.so");
-set_metadata_recursive("/data/sys-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0);
-set_metadata_recursive("/data/sys-app/Map/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/MzCompaign/lib/arm/libplugin_phone.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/data/sys-app/MzPay/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/data/sys-app/Life", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/data/sys-app/MzSecurity/lib/arm", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/O2OService/lib/arm/libimageproc.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/O2OService/lib/arm/libtbt.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/O2OService/lib/arm/libDominantColors.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/data/sys-app/Search", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/data/sys-app/Reader/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/AppCenter/lib/arm/libblur.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/data/sys-app/Camera/lib/arm/libpanorama.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
-unmount("/data")
+set_metadata_recursive("/data/sys-fonts", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-priv-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-priv-app/IflytekSpeechService", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0);
+unmount("/data");
 unmount("/system");

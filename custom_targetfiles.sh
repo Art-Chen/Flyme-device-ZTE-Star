@@ -10,6 +10,10 @@ rm -rf DATA/
 echo "create dir DATA/"
 mkdir -vp DATA/
 echo "move some app into data"
-mkdir -vp $OUT_DIR/DATA/sys-app
-mv -vf $OUT_DIR/SYSTEM/app/* $OUT_DIR/DATA/sys-app
-rm $OUT_DIR/DATA/sys-app/webview/lib/arm/libwebviewchromium.so
+mkdir -vp $OUT_DIR/DATA/sys-priv-app/IflytekSpeechService
+mv -vf $OUT_DIR/SYSTEM/app/IflytekSpeechService/ $OUT_DIR/DATA/sys-priv-app/
+echo "move system font into data"
+mv -vf $OUT_DIR/SYSTEM/fonts/ $OUT_DIR/DATA/sys-fonts
+#mkdir -vp $OUT_DIR/DATA/sys-app
+#mv -vf $OUT_DIR/SYSTEM/app/* $OUT_DIR/DATA/sys-app
+#rm $OUT_DIR/DATA/sys-app/webview/lib/arm/libwebviewchromium.so
