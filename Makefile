@@ -89,7 +89,7 @@ vendor_modify_jars := android.policy framework oem-services services telephony-c
 # You can configure the board system file path which relative to the system directory in the board release.
 # You should add "lib64/libwebviewchromium.so" for 64 bit system.
 #-----------------------------------------------------------------------------
-board_saved_files := lib/libwebviewchromium.so media/bootanimation.zip bin/bootanimation media/shutanimation.zip bin/shutdownanition
+board_saved_files := lib/libwebviewchromium.so media/bootanimation.zip media/shutanimation.zip bin/shutdownanimation
 
 ##############################################################################
 # The value decides which board system apk you want to remove.
