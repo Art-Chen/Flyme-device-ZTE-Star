@@ -571,12 +571,20 @@ on property:sys.usb.config=mtp
 
 on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
-    # # ZTE_MODIFY liuzhongzhi changed VID/PID mergerd from T30 , 20130513 #
-    #write /sys/class/android_usb/android0/idVendor 05C6
-    #write /sys/class/android_usb/android0/idProduct 9039
-    write /sys/class/android_usb/android0/idVendor 19D2
-    write /sys/class/android_usb/android0/idProduct 0245
+    #Art_Chen Modify changed VID/PID mergerd from Nexus5 #
+    ## # ZTE_MODIFY liuzhongzhi changed VID/PID mergerd from T30 , 20130513 #
+    ##write /sys/class/android_usb/android0/idVendor 05C6
+    ##write /sys/class/android_usb/android0/idProduct 9039
+    #write /sys/class/android_usb/android0/idVendor 19D2
+    #write /sys/class/android_usb/android0/idProduct 0245
     # ZTE_MODIFY end #
+    write /sys/class/android_usb/android0/idVendor 18D1
+    write /sys/class/android_usb/android0/idProduct 4EE2
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    write /sys/class/android_usb/android0/bDeviceSubClass 0
+    write /sys/class/android_usb/android0/bDeviceProtocol 0
+
+    #Art_Chen Modify End#
     write /sys/class/android_usb/android0/functions mtp,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd

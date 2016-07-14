@@ -519,6 +519,10 @@
     .end local v1    # "oldPolicy":Landroid/os/StrictMode$ThreadPolicy;
     .end local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/webkit/WebViewFactoryProvider;>;"
     :cond_0
+#Test
+
+    goto/16 :goto_flyme_0
+    
     const-wide/16 v6, 0x10
 
     const-string v3, "WebViewFactory.getProvider()"
@@ -527,7 +531,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 104
+    :goto_flyme_0
     const-wide/16 v6, 0x10
 
     :try_start_1
@@ -535,15 +539,13 @@
 
     invoke-static {v6, v7, v3}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 105
     invoke-static {}, Landroid/webkit/WebViewFactory;->loadNativeLibrary()V
 
-    .line 106
+    .line 104
     const-wide/16 v6, 0x10
 
     invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
 
-    .line 109
     const-wide/16 v6, 0x10
 
     const-string v3, "WebViewFactory.getFactoryClass()"
@@ -974,7 +976,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040115
+    const v1, #android:string@config_webViewPackageName#t
 
     invoke-virtual {v0, v1}, Landroid/app/Application;->getString(I)Ljava/lang/String;
 
