@@ -445,4 +445,5 @@ set_metadata_recursive("/data/sys-app/Search", "uid", 0, "gid", 0, "dmode", 0755
 set_metadata_recursive("/data/sys-app/Reader/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/data/sys-app/AppCenter/lib/arm/libblur.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/data/sys-app/Camera/lib/arm/libpanorama.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+unmount("/data")
 unmount("/system");
