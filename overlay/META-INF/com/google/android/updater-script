@@ -413,6 +413,7 @@ set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabi
 show_progress(0.050000, 5);
 package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 show_progress(0.200000, 10);
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data", "");
 package_extract_dir("data", "/data");
 symlink("/data/sys-app", "/system/app");
 symlink("/system/lib/libIvw40.so", "/data/sys-app/IflytekSpeechService/lib/arm/libIvw40.so");
