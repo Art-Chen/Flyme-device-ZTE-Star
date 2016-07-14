@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dashboard-categories
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.flyme.DeviceOriginalSettings">
+    <dashboard-category android:id="@id/device_section" android:title="@string/header_category_device">
+        <dashboard-tile android:icon="@drawable/ic_settings_display" android:id="@id/display_and_lights_settings" android:title="@string/display_and_lights" android:fragment="com.flyme.DeviceOriginalSettings.DisplaySettings" />
+        <dashboard-tile android:icon="@drawable/ic_settings_buttons" android:id="@id/button_settings" android:title="@string/button_pref_title" android:fragment="com.flyme.DeviceOriginalSettings.ButtonSettings" />
+        <dashboard-tile android:icon="@drawable/ic_settings_oclick" android:id="@id/oclick">
+            <intent android:targetPackage="com.cyanogenmod.settings.device" android:action="com.cyanogenmod.action.LAUNCH_BLUETOOTH_INPUT_SETTINGS" android:targetClass="com.cyanogenmod.settings.device.BluetoothInputSettings" />
+        </dashboard-tile>
+        <dashboard-tile android:icon="@drawable/ic_settings_battery" android:id="@id/battery_settings" android:title="@string/power_usage_summary_title" android:fragment="com.flyme.DeviceOriginalSettings.fuelgauge.PowerUsageSummary" />
+        <dashboard-tile android:icon="@drawable/ic_settings_multiuser" android:id="@id/user_settings" android:title="@string/user_settings_title" android:fragment="com.flyme.DeviceOriginalSettings.users.UserSettings" />
+    </dashboard-category>
+    <dashboard-category android:id="@id/system_section" android:title="@string/header_category_system">
+        <dashboard-tile android:icon="@drawable/ic_settings_development" android:id="@id/development_settings" android:title="@string/development_settings_title" android:fragment="com.flyme.DeviceOriginalSettings.DevelopmentSettings" />
+        <dashboard-tile android:icon="@drawable/ic_settings_about" android:id="@id/about_settings" android:title="@string/about_settings" android:fragment="com.flyme.DeviceOriginalSettings.DeviceInfoSettings" />
+    </dashboard-category>
+</dashboard-categories>

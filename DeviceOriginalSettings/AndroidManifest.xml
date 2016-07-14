@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" coreApp="true" package="com.flyme.DeviceOriginalSettings" platformBuildVersionCode="22" platformBuildVersionName="5.1-eng..20150912.021918">
+    <original-package android:name="com.flyme.DeviceOriginalSettings"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.HARDWARE_TEST"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.MASTER_CLEAR"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIMAX_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIMAX_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.certinstaller.INSTALL_AS_USER"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOVE_PACKAGE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.BACKUP"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <uses-permission android:name="android.permission.MANAGE_USB"/>
+    <uses-permission android:name="android.permission.SET_POINTER_SPEED"/>
+    <uses-permission android:name="android.permission.SET_KEYBOARD_LAYOUT"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.COPY_PROTECTED_DATA"/>
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY"/>
+    <uses-permission android:name="android.permission.SET_TIME"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS"/>
+    <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES"/>
+    <uses-permission android:name="android.permission.OEM_UNLOCK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS"/>
+    <permission android:name="cyanogenmod.permission.PROTECTED_APP" android:protectionLevel="signatureOrSystem"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher_settings" android:label="@string/settings_label" android:requiredForAllUsers="true" android:supportsRtl="true" android:taskAffinity="" android:theme="@style/Theme.Settings">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/screencolor" android:name=".ScreenColorSettings" android:screenOrientation="nosensor"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/custom_screencolor" android:name=".CustomScreenColor" android:screenOrientation="nosensor"/>
+        <activity android:label="@string/settings_label_launcher" android:launchMode="singleTask" android:name="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
+            <intent-filter>
+                <action android:name="android.settings.SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
+        <activity-alias android:label="@string/settings_label_launcher" android:launchMode="singleTask" android:name="Settings" android:targetActivity="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="com.android.settings.ADDITIONAL_APPLICATION_SETTING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:name=".SubSettings" android:parentActivityName="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings"/>
+        <activity android:label="@string/settings_shortcut" android:name="CreateShortcut" android:theme="@style/Theme.SubSettingsDialogWhenLarge">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/display_settings" android:name="Settings$DisplaySettingsActivity" android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="com.flyme.DeviceOriginalSettings.DISPLAY_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.VOICE_LAUNCH"/>
+                <category android:name="com.flyme.DeviceOriginalSettings.SHORTCUT"/>
+            </intent-filter>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.FRAGMENT_CLASS" android:value="com.flyme.DeviceOriginalSettings.DisplaySettings"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.TOP_LEVEL_HEADER_ID" android:resource="@id/display_and_lights_settings"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
+        <activity-alias android:exported="true" android:label="@string/display_settings" android:name="DisplaySettings" android:targetActivity="Settings$DisplaySettingsActivity">
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.FRAGMENT_CLASS" android:value="com.flyme.DeviceOriginalSettings.DisplaySettings"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.TOP_LEVEL_HEADER_ID" android:resource="@id/display_and_lights_settings"/>
+        </activity-alias>
+        <activity android:label="@string/device_info_settings" android:name="Settings$DeviceInfoSettingsActivity" android:parentActivityName="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings" android:theme="@style/Theme.SubSettingsDialogWhenLarge">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.VOICE_LAUNCH"/>
+            </intent-filter>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.FRAGMENT_CLASS" android:value="com.flyme.DeviceOriginalSettings.DeviceInfoSettings"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.TOP_LEVEL_HEADER_ID" android:resource="@id/about_settings"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
+        <activity android:label="@string/battery_info_label" android:name="BatteryInfo" android:parentActivityName="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+                <category android:name="android.intent.category.VOICE_LAUNCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale" android:label="@string/display_label" android:name="Display" android:parentActivityName="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/usage_stats_label" android:name="UsageStatsActivity" android:parentActivityName="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/power_usage_summary_title" android:name="Settings$PowerUsageSummaryActivity" android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.POWER_USAGE_SUMMARY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.flyme.DeviceOriginalSettings.SHORTCUT"/>
+            </intent-filter>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.FRAGMENT_CLASS" android:value="com.flyme.DeviceOriginalSettings.fuelgauge.PowerUsageSummary"/>
+            <meta-data android:name="com.flyme.DeviceOriginalSettings.TOP_LEVEL_HEADER_ID" android:resource="@id/battery_settings"/>
+        </activity>
+    </application>
+</manifest>
