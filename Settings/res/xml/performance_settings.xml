@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/performance_settings_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/performance_settings_title" android:key="perf_profile_prefs">
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference android:title="@string/autoperf_title" android:key="app_perf_profiles_enabled" android:summary="@string/autoperf_summary" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/accessibility_system_title" android:key="perf_system_prefs">
+        <PreferenceScreen android:title="@string/processor_title" android:key="processor" android:fragment="com.android.settings.cyanogenmod.Processor" />
+        <PreferenceScreen android:title="@string/io_scheds_title" android:key="ioscheduler" android:fragment="com.android.settings.cyanogenmod.IOScheduler" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/graphics_title" android:key="perf_graphics_prefs">
+        <SwitchPreference android:title="@string/pref_force_highend_gfx_title" android:key="pref_force_highend_gfx" android:summary="@string/pref_force_highend_gfx_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="show_dev_countdown">
+        <item quantity="other">Вы ў %1$d кроках ад таго, каб стаць распрацоўшчыкам.</item>
+        <item quantity="one">Вы ў %1$d кроку ад таго, каб стаць распрацоўшчыкам.</item>
+        <item quantity="few">Вы ў %1$d кроках ад таго, каб стаць распрацоўшчыкам.</item>
+    </plurals>
+</resources>

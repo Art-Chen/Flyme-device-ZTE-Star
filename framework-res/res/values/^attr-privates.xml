@@ -208,6 +208,7 @@
     <attr name="layout_ignoreOffset" format="boolean" />
     <attr name="neverEncrypt" format="boolean" />
     <attr name="cantSaveState" format="boolean" />
+    <attr name="allowViaWhitelist" format="boolean" />
     <attr name="primaryUserOnly" format="boolean" />
     <attr name="needAccessControl" format="boolean" />
 </resources>

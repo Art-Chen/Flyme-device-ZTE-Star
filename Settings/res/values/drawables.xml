@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="transparent_background">#00000000</item>
+    <item type="drawable" name="expanded_item_bg_activated">#ffeeeeee</item>
+    <item type="drawable" name="expanded_item_bg">@android:color/background_light</item>
+</resources>

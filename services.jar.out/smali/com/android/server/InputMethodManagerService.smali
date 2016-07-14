@@ -2196,6 +2196,198 @@
     goto/16 :goto_0
 .end method
 
+
+.method private publishImeSelectorCustomTile(Landroid/view/inputmethod/InputMethodInfo;)V
+    .locals 15
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+
+    .prologue
+    .line 3356
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v10
+
+    .line 3357
+    .local v10, "userId":I
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    .line 3359
+    .local v8, "token":J
+    :try_start_0
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    const-string v12, "ime_selector"
+
+    invoke-static {v11, v12, v10}, Lcom/android/internal/util/cm/QSUtils;->isQSTileEnabledForUser(Landroid/content/Context;Ljava/lang/String;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v11
+
+    if-nez v11, :cond_0
+
+    .line 3387
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    .line 3389
+    :goto_0
+    return-void
+
+    .line 3364
+    :cond_0
+    :try_start_1
+    new-instance v7, Landroid/os/UserHandle;
+
+    invoke-direct {v7, v10}, Landroid/os/UserHandle;-><init>(I)V
+
+    .line 3365
+    .local v7, "user":Landroid/os/UserHandle;
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    const-string v12, "ime_selector"
+
+    invoke-static {v11, v10, v12}, Lcom/android/internal/util/cm/QSUtils;->getDynamicQSTileResIconId(Landroid/content/Context;ILjava/lang/String;)I
+
+    move-result v1
+
+    .line 3367
+    .local v1, "icon":I
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    const-string v12, "ime_selector"
+
+    invoke-static {v11, v10, v12}, Lcom/android/internal/util/cm/QSUtils;->getDynamicQSTileLabel(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 3369
+    .local v0, "contentDesc":Ljava/lang/String;
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v11, v10}, Lcom/android/internal/util/cm/QSUtils;->getQSTileContext(Landroid/content/Context;I)Landroid/content/Context;
+
+    move-result-object v4
+
+    .line 3370
+    .local v4, "resourceContext":Landroid/content/Context;
+    const/4 v2, 0x0
+
+    .line 3371
+    .local v2, "inputMethodName":Ljava/lang/CharSequence;
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mCurrentSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+
+    if-eqz v11, :cond_1
+
+    .line 3372
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mCurrentSubtype:Landroid/view/inputmethod/InputMethodSubtype;
+
+    iget-object v12, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object v14
+
+    iget-object v14, v14, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v11, v12, v13, v14}, Landroid/view/inputmethod/InputMethodSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    .line 3375
+    :cond_1
+    if-nez v2, :cond_2
+
+    move-object v3, v0
+
+    .line 3377
+    .local v3, "label":Ljava/lang/CharSequence;
+    :goto_1
+    iget-object v11, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v11}, Lcyanogenmod/app/CMStatusBarManager;->getInstance(Landroid/content/Context;)Lcyanogenmod/app/CMStatusBarManager;
+
+    move-result-object v5
+
+    .line 3378
+    .local v5, "statusBarManager":Lcyanogenmod/app/CMStatusBarManager;
+    new-instance v11, Lcyanogenmod/app/CustomTile$Builder;
+
+    invoke-direct {v11, v4}, Lcyanogenmod/app/CustomTile$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Lcyanogenmod/app/CustomTile$Builder;->setLabel(Ljava/lang/String;)Lcyanogenmod/app/CustomTile$Builder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Lcyanogenmod/app/CustomTile$Builder;->setContentDescription(Ljava/lang/String;)Lcyanogenmod/app/CustomTile$Builder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v1}, Lcyanogenmod/app/CustomTile$Builder;->setIcon(I)Lcyanogenmod/app/CustomTile$Builder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Lcom/android/server/InputMethodManagerService;->mImeSwitchPendingIntent:Landroid/app/PendingIntent;
+
+    invoke-virtual {v11, v12}, Lcyanogenmod/app/CustomTile$Builder;->setOnClickIntent(Landroid/app/PendingIntent;)Lcyanogenmod/app/CustomTile$Builder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcyanogenmod/app/CustomTile$Builder;->build()Lcyanogenmod/app/CustomTile;
+
+    move-result-object v6
+
+    .line 3384
+    .local v6, "tile":Lcyanogenmod/app/CustomTile;
+    const-string v11, "ime_selector"
+
+    const-class v12, Lcom/android/server/InputMethodManagerService;
+
+    invoke-virtual {v12}, Ljava/lang/Object;->hashCode()I
+
+    move-result v12
+
+    invoke-virtual {v5, v11, v12, v6, v7}, Lcyanogenmod/app/CMStatusBarManager;->publishTileAsUser(Ljava/lang/String;ILcyanogenmod/app/CustomTile;Landroid/os/UserHandle;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 3387
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    .end local v3    # "label":Ljava/lang/CharSequence;
+    .end local v5    # "statusBarManager":Lcyanogenmod/app/CMStatusBarManager;
+    .end local v6    # "tile":Lcyanogenmod/app/CustomTile;
+    :cond_2
+    move-object v3, v2
+
+    .line 3375
+    goto :goto_1
+
+    .line 3387
+    .end local v0    # "contentDesc":Ljava/lang/String;
+    .end local v1    # "icon":I
+    .end local v2    # "inputMethodName":Ljava/lang/CharSequence;
+    .end local v4    # "resourceContext":Landroid/content/Context;
+    .end local v7    # "user":Landroid/os/UserHandle;
+    :catchall_0
+    move-exception v11
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v11
+.end method
+
 .method private refreshImeWindowVisibilityLocked()V
     .locals 10
 

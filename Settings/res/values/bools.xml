@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="has_dock_settings">false</bool>
+    <bool name="has_silent_mode">true</bool>
+    <bool name="has_powercontrol_widget">true</bool>
+    <bool name="config_additional_system_update_setting_enable">false</bool>
+    <bool name="auto_confirm_bluetooth_activation_dialog">false</bool>
+    <bool name="config_show_regulatory_info">false</bool>
+    <bool name="config_show_mobile_plan">true</bool>
+    <bool name="config_eap_sim_function">false</bool>
+    <bool name="config_msid_enable">false</bool>
+    <bool name="config_allow_edit_carrier_enabled">false</bool>
+    <bool name="config_show_sar_enable">false</bool>
+    <bool name="config_show_ic_enable">false</bool>
+    <bool name="config_hidePerformanceSettings">false</bool>
+    <bool name="config_dolby_only_available_plug_headphone">true</bool>
+    <bool name="config_glove_mode">false</bool>
+    <bool name="config_mi_pop">true</bool>
+    <bool name="config_kids_mode">true</bool>
+    <bool name="config_home_selector">true</bool>
+    <bool name="config_profile_v3">true</bool>
+    <bool name="config_profile_v3_show_summary">true</bool>
+    <bool name="config_screen_effect">true</bool>
+    <bool name="config_zte_sound">true</bool>
+    <bool name="config_silent_poweron">true</bool>
+    <bool name="config_notification_pulse">true</bool>
+    <bool name="config_breath_light">true</bool>
+    <bool name="config_device_ringtone">true</bool>
+</resources>
