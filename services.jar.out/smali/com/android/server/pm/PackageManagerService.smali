@@ -7043,9 +7043,8 @@
     throw v0
 .end method
 
-#Replace method from base for unknown error
 .method private chooseBestActivity(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;I)Landroid/content/pm/ResolveInfo;
-    .locals 15
+    .locals 17
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "resolvedType"    # Ljava/lang/String;
     .param p3, "flags"    # I
@@ -7065,299 +7064,350 @@
     .end annotation
 
     .prologue
-    .line 3069
+    .line 3298
     .local p4, "query":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz p4, :cond_7
+    if-eqz p4, :cond_8
 
-    .line 3070
+    .line 3299
     invoke-interface/range {p4 .. p4}, Ljava/util/List;->size()I
 
-    move-result v11
+    move-result v13
 
-    .line 3071
-    .local v11, "N":I
-    const/4 v1, 0x1
+    .line 3300
+    .local v13, "N":I
+    const/4 v3, 0x1
 
-    if-ne v11, v1, :cond_0
+    if-ne v13, v3, :cond_1
 
-    .line 3072
-    const/4 v1, 0x0
+    .line 3302
+    const/high16 v3, 0x100000
+
+    and-int v3, v3, p3
+
+    const/high16 v4, 0x100000
+
+    if-ne v3, v4, :cond_0
+
+    .line 3304
+    const/4 v3, 0x0
 
     move-object/from16 v0, p4
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Landroid/content/pm/ResolveInfo;
+    check-cast v3, Landroid/content/pm/ResolveInfo;
 
-    .line 3109
-    .end local v11    # "N":I
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, p5
+
+    invoke-direct {v0, v1, v3, v2}, Lcom/android/server/pm/PackageManagerService;->findPreLaunchCheckResolve(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;I)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v3
+
+    .line 3344
+    .end local v13    # "N":I
     :goto_0
-    return-object v1
+    return-object v3
 
-    .line 3073
-    .restart local v11    # "N":I
+    .line 3306
+    .restart local v13    # "N":I
     :cond_0
-    const/4 v1, 0x1
-
-    if-le v11, v1, :cond_7
-
-    .line 3074
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getFlags()I
-
-    move-result v1
-
-    and-int/lit8 v1, v1, 0x8
-
-    if-eqz v1, :cond_3
-
-    const/4 v9, 0x1
-
-    .line 3077
-    .local v9, "debug":Z
-    :goto_1
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     move-object/from16 v0, p4
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v3
 
-    check-cast v12, Landroid/content/pm/ResolveInfo;
-
-    .line 3078
-    .local v12, "r0":Landroid/content/pm/ResolveInfo;
-    const/4 v1, 0x1
-
-    move-object/from16 v0, p4
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/content/pm/ResolveInfo;
-
-    .line 3079
-    .local v13, "r1":Landroid/content/pm/ResolveInfo;
-    if-eqz v9, :cond_1
-
-    .line 3080
-    const-string v1, "PackageManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v3, v12, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, v12, Landroid/content/pm/ResolveInfo;->priority:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " vs "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, v13, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, v13, Landroid/content/pm/ResolveInfo;->priority:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 3085
-    :cond_1
-    iget v1, v12, Landroid/content/pm/ResolveInfo;->priority:I
-
-    iget v2, v13, Landroid/content/pm/ResolveInfo;->priority:I
-
-    if-ne v1, v2, :cond_2
-
-    iget v1, v12, Landroid/content/pm/ResolveInfo;->preferredOrder:I
-
-    iget v2, v13, Landroid/content/pm/ResolveInfo;->preferredOrder:I
-
-    if-ne v1, v2, :cond_2
-
-    iget-boolean v1, v12, Landroid/content/pm/ResolveInfo;->isDefault:Z
-
-    iget-boolean v2, v13, Landroid/content/pm/ResolveInfo;->isDefault:Z
-
-    if-eq v1, v2, :cond_4
-
-    .line 3088
-    :cond_2
-    const/4 v1, 0x0
-
-    move-object/from16 v0, p4
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/ResolveInfo;
+    check-cast v3, Landroid/content/pm/ResolveInfo;
 
     goto :goto_0
 
-    .line 3074
-    .end local v9    # "debug":Z
-    .end local v12    # "r0":Landroid/content/pm/ResolveInfo;
-    .end local v13    # "r1":Landroid/content/pm/ResolveInfo;
-    :cond_3
-    const/4 v9, 0x0
+    .line 3308
+    :cond_1
+    const/4 v3, 0x1
 
-    goto :goto_1
+    if-le v13, v3, :cond_8
 
-    .line 3092
-    .restart local v9    # "debug":Z
-    .restart local v12    # "r0":Landroid/content/pm/ResolveInfo;
-    .restart local v13    # "r1":Landroid/content/pm/ResolveInfo;
-    :cond_4
-    iget v6, v12, Landroid/content/pm/ResolveInfo;->priority:I
+    .line 3309
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getFlags()I
 
-    const/4 v7, 0x1
+    move-result v3
 
-    const/4 v8, 0x0
+    and-int/lit8 v3, v3, 0x8
 
-    move-object v1, p0
+    if-eqz v3, :cond_4
 
-    move-object/from16 v2, p1
+    const/4 v11, 0x1
 
-    move-object/from16 v3, p2
+    .line 3312
+    .local v11, "debug":Z
+    :goto_1
+    const/4 v3, 0x0
 
-    move/from16 v4, p3
+    move-object/from16 v0, p4
 
-    move-object/from16 v5, p4
-
-    move/from16 v10, p5
-
-    invoke-virtual/range {v1 .. v10}, Lcom/android/server/pm/PackageManagerService;->findPreferredActivity(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;IZZZI)Landroid/content/pm/ResolveInfo;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v14
 
-    .line 3094
-    .local v14, "ri":Landroid/content/pm/ResolveInfo;
-    if-eqz v14, :cond_5
+    check-cast v14, Landroid/content/pm/ResolveInfo;
 
-    move-object v1, v14
+    .line 3313
+    .local v14, "r0":Landroid/content/pm/ResolveInfo;
+    const/4 v3, 0x1
 
-    .line 3095
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/content/pm/ResolveInfo;
+
+    .line 3314
+    .local v15, "r1":Landroid/content/pm/ResolveInfo;
+    if-eqz v11, :cond_2
+
+    .line 3315
+    const-string v3, "PackageManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v14, Landroid/content/pm/ResolveInfo;->priority:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " vs "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, v15, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v15, Landroid/content/pm/ResolveInfo;->priority:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3320
+    :cond_2
+    iget v3, v14, Landroid/content/pm/ResolveInfo;->priority:I
+
+    iget v4, v15, Landroid/content/pm/ResolveInfo;->priority:I
+
+    if-ne v3, v4, :cond_3
+
+    iget v3, v14, Landroid/content/pm/ResolveInfo;->preferredOrder:I
+
+    iget v4, v15, Landroid/content/pm/ResolveInfo;->preferredOrder:I
+
+    if-ne v3, v4, :cond_3
+
+    iget-boolean v3, v14, Landroid/content/pm/ResolveInfo;->isDefault:Z
+
+    iget-boolean v4, v15, Landroid/content/pm/ResolveInfo;->isDefault:Z
+
+    if-eq v3, v4, :cond_5
+
+    .line 3323
+    :cond_3
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ResolveInfo;
+
     goto/16 :goto_0
 
-    .line 3097
+    .line 3309
+    .end local v11    # "debug":Z
+    .end local v14    # "r0":Landroid/content/pm/ResolveInfo;
+    .end local v15    # "r1":Landroid/content/pm/ResolveInfo;
+    :cond_4
+    const/4 v11, 0x0
+
+    goto :goto_1
+
+    .line 3327
+    .restart local v11    # "debug":Z
+    .restart local v14    # "r0":Landroid/content/pm/ResolveInfo;
+    .restart local v15    # "r1":Landroid/content/pm/ResolveInfo;
     :cond_5
-    if-eqz p5, :cond_6
+    iget v8, v14, Landroid/content/pm/ResolveInfo;->priority:I
 
-    .line 3098
-    new-instance v14, Landroid/content/pm/ResolveInfo;
+    const/4 v9, 0x1
 
-    .end local v14    # "ri":Landroid/content/pm/ResolveInfo;
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+    const/4 v10, 0x0
 
-    invoke-direct {v14, v1}, Landroid/content/pm/ResolveInfo;-><init>(Landroid/content/pm/ResolveInfo;)V
+    move-object/from16 v3, p0
 
-    .line 3099
-    .restart local v14    # "ri":Landroid/content/pm/ResolveInfo;
-    new-instance v1, Landroid/content/pm/ActivityInfo;
+    move-object/from16 v4, p1
 
-    iget-object v2, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    move-object/from16 v5, p2
 
-    invoke-direct {v1, v2}, Landroid/content/pm/ActivityInfo;-><init>(Landroid/content/pm/ActivityInfo;)V
+    move/from16 v6, p3
 
-    iput-object v1, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    move-object/from16 v7, p4
 
-    .line 3100
-    iget-object v1, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    move/from16 v12, p5
 
-    new-instance v2, Landroid/content/pm/ApplicationInfo;
+    invoke-virtual/range {v3 .. v12}, Lcom/android/server/pm/PackageManagerService;->findPreferredActivity(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;IZZZI)Landroid/content/pm/ResolveInfo;
 
-    iget-object v3, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    move-result-object v16
+
+    .line 3329
+    .local v16, "ri":Landroid/content/pm/ResolveInfo;
+    if-eqz v16, :cond_6
+
+    move-object/from16 v3, v16
+
+    .line 3330
+    goto/16 :goto_0
+
+    .line 3332
+    :cond_6
+    if-eqz p5, :cond_7
+
+    .line 3333
+    new-instance v16, Landroid/content/pm/ResolveInfo;
+
+    .end local v16    # "ri":Landroid/content/pm/ResolveInfo;
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    move-object/from16 v0, v16
+
+    invoke-direct {v0, v3}, Landroid/content/pm/ResolveInfo;-><init>(Landroid/content/pm/ResolveInfo;)V
+
+    .line 3334
+    .restart local v16    # "ri":Landroid/content/pm/ResolveInfo;
+    new-instance v3, Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-direct {v3, v4}, Landroid/content/pm/ActivityInfo;-><init>(Landroid/content/pm/ActivityInfo;)V
+
+    move-object/from16 v0, v16
+
+    iput-object v3, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    .line 3335
+    move-object/from16 v0, v16
+
+    iget-object v3, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    new-instance v4, Landroid/content/pm/ApplicationInfo;
+
+    move-object/from16 v0, v16
+
+    iget-object v5, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-direct {v4, v5}, Landroid/content/pm/ApplicationInfo;-><init>(Landroid/content/pm/ApplicationInfo;)V
+
+    iput-object v4, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    .line 3337
+    move-object/from16 v0, v16
+
+    iget-object v3, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-direct {v2, v3}, Landroid/content/pm/ApplicationInfo;-><init>(Landroid/content/pm/ApplicationInfo;)V
+    move-object/from16 v0, v16
 
-    iput-object v2, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v4, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    .line 3102
-    iget-object v1, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget-object v2, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    invoke-static {v4}, Landroid/os/UserHandle;->getAppId(I)I
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-static {v2}, Landroid/os/UserHandle;->getAppId(I)I
-
-    move-result v2
+    move-result v4
 
     move/from16 v0, p5
 
-    invoke-static {v0, v2}, Landroid/os/UserHandle;->getUid(II)I
+    invoke-static {v0, v4}, Landroid/os/UserHandle;->getUid(II)I
 
-    move-result v2
+    move-result v4
 
-    iput v2, v1, Landroid/content/pm/ApplicationInfo;->uid:I
+    iput v4, v3, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    move-object v1, v14
+    move-object/from16 v3, v16
 
-    .line 3104
+    .line 3339
     goto/16 :goto_0
 
-    .line 3106
-    :cond_6
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mResolveInfo:Landroid/content/pm/ResolveInfo;
-
-    goto/16 :goto_0
-
-    .line 3109
-    .end local v9    # "debug":Z
-    .end local v11    # "N":I
-    .end local v12    # "r0":Landroid/content/pm/ResolveInfo;
-    .end local v13    # "r1":Landroid/content/pm/ResolveInfo;
-    .end local v14    # "ri":Landroid/content/pm/ResolveInfo;
+    .line 3341
     :cond_7
-    const/4 v1, 0x0
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    goto/16 :goto_0
+
+    .line 3344
+    .end local v11    # "debug":Z
+    .end local v13    # "N":I
+    .end local v14    # "r0":Landroid/content/pm/ResolveInfo;
+    .end local v15    # "r1":Landroid/content/pm/ResolveInfo;
+    .end local v16    # "ri":Landroid/content/pm/ResolveInfo;
+    :cond_8
+    const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
