@@ -17,3 +17,9 @@ mv -vf $OUT_DIR/SYSTEM/fonts/ $OUT_DIR/DATA/sys-fonts
 #mkdir -vp $OUT_DIR/DATA/sys-app
 #mv -vf $OUT_DIR/SYSTEM/app/* $OUT_DIR/DATA/sys-app
 #rm $OUT_DIR/DATA/sys-app/webview/lib/arm/libwebviewchromium.so
+echo "remove Nfc"
+rm -rf $OUT_DIR/SYSTEM/app/NfcNci
+rm -rf $OUT_DIR/SYSTEM/priv-app/Tag
+rm -rf $OUT_DIR/SYSTEM/lib/*nfc*
+rm -rf $OUT_DIR/SYSTEM/etc/*nfc*
+rm -rf $OUT_DIR/SYSTEM/etc/permissions/*nfc*

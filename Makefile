@@ -56,7 +56,7 @@ vendor_modify_images := boot
 #-----------------------------------------------------------------------------
 vendor_saved_apps := Bluetooth KeyChain HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
                      FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
-                     ProxyHandler Shell DefaultContainerService
+                     ProxyHandler Shell DefaultContainerService webview
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -89,7 +89,7 @@ vendor_modify_jars := android.policy framework oem-services services telephony-c
 # You can configure the board system file path which relative to the system directory in the board release.
 # You should add "lib64/libwebviewchromium.so" for 64 bit system.
 #-----------------------------------------------------------------------------
-board_saved_files := lib/libwebviewchromium.so media/bootanimation.zip media/shutanimation.zip bin/shutdownanimation
+board_saved_files := media/bootanimation.zip media/shutanimation.zip bin/shutdownanimation
 
 ##############################################################################
 # The value decides which board system apk you want to remove.
@@ -108,7 +108,7 @@ board_saved_files := lib/libwebviewchromium.so media/bootanimation.zip media/shu
 # The command idtoname how to use: first use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res",
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode board system apk).
 #-----------------------------------------------------------------------------
-board_modify_apps := SystemUI Telecom TeleService
+board_modify_apps := SystemUI Telecom TeleService Settings
 
 ##############################################################################
 # The value decides which jar you want to modify, when the jar is based on the board framework jar.
