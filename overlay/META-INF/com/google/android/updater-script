@@ -1,0 +1,447 @@
+assert(getprop("ro.product.device") == "msm8226" ||
+       getprop("ro.build.product") == "msm8226" || 
+       getprop("ro.product.device") == "msm8226" ||
+       getprop("ro.build.product") == "msm8226");
+show_progress(0.750000, 0);
+format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0", "/system");
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system", "");
+package_extract_dir("recovery", "/system");
+package_extract_dir("system", "/system");
+symlink("/data/misc/audio/mbhc.bin", "/system/etc/firmware/wcd9306/wcd9306_mbhc.bin");
+symlink("/data/misc/audio/wcd9320_anc.bin", "/system/etc/firmware/wcd9306/wcd9306_anc.bin");
+symlink("/data/misc/wifi/WCNSS_qcom_cfg.ini", "/system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini");
+symlink("/system/etc/wifi/WCNSS_qcom_wlan_nv.bin", "/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin");
+symlink("/system/etc/wifi/wpa_supplicant_wcn.conf", "/system/etc/wifi/wpa_supplicant.conf");
+symlink("/system/lib/libdefcontainer_jni.so", "/system/priv-app/DefaultContainerService/lib/arm/libdefcontainer_jni.so");
+symlink("/system/lib/libjni_systemuitools.so", "/system/priv-app/SystemUITools/lib/arm/libjni_systemuitools.so");
+symlink("/system/lib/libnative_glrenderer.so", "/system/priv-app/SystemUI/lib/arm/libnative_glrenderer.so",
+        "/system/priv-app/SystemUITools/lib/arm/libnative_glrenderer.so");
+symlink("/system/lib/modules/pronto/pronto_wlan.ko", "/system/lib/modules/wlan.ko");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+symlink("app_process32", "/system/bin/app_process");
+symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
+        "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
+        "/system/xbin/awk", "/system/xbin/base64", "/system/xbin/basename",
+        "/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
+        "/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
+        "/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
+        "/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chcon",
+        "/system/xbin/chgrp", "/system/xbin/chmod", "/system/xbin/chown",
+        "/system/xbin/chroot", "/system/xbin/chvt", "/system/xbin/clear",
+        "/system/xbin/cmp", "/system/xbin/comm", "/system/xbin/cp",
+        "/system/xbin/cpio", "/system/xbin/crond", "/system/xbin/crontab",
+        "/system/xbin/cut", "/system/xbin/date", "/system/xbin/dc",
+        "/system/xbin/dd", "/system/xbin/deallocvt", "/system/xbin/depmod",
+        "/system/xbin/devmem", "/system/xbin/df", "/system/xbin/diff",
+        "/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
+        "/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
+        "/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
+        "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
+        "/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgconsole",
+        "/system/xbin/fgrep", "/system/xbin/find", "/system/xbin/findfs",
+        "/system/xbin/flash_lock", "/system/xbin/flash_unlock",
+        "/system/xbin/flashcp", "/system/xbin/flock", "/system/xbin/fold",
+        "/system/xbin/free", "/system/xbin/freeramdisk", "/system/xbin/fstrim",
+        "/system/xbin/fsync", "/system/xbin/ftpget", "/system/xbin/ftpput",
+        "/system/xbin/fuser", "/system/xbin/getenforce", "/system/xbin/getopt",
+        "/system/xbin/getsebool", "/system/xbin/grep", "/system/xbin/groups",
+        "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
+        "/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/hwclock",
+        "/system/xbin/id", "/system/xbin/ifconfig", "/system/xbin/inetd",
+        "/system/xbin/insmod", "/system/xbin/install", "/system/xbin/ionice",
+        "/system/xbin/iostat", "/system/xbin/ip", "/system/xbin/kill",
+        "/system/xbin/killall", "/system/xbin/killall5", "/system/xbin/less",
+        "/system/xbin/ln", "/system/xbin/losetup", "/system/xbin/ls",
+        "/system/xbin/lsattr", "/system/xbin/lsmod", "/system/xbin/lspci",
+        "/system/xbin/lsusb", "/system/xbin/lzcat", "/system/xbin/lzma",
+        "/system/xbin/lzop", "/system/xbin/lzopcat", "/system/xbin/man",
+        "/system/xbin/matchpathcon", "/system/xbin/md5sum", "/system/xbin/mesg",
+        "/system/xbin/mkdir", "/system/xbin/mke2fs", "/system/xbin/mkfifo",
+        "/system/xbin/mkfs.ext2", "/system/xbin/mkfs.vfat",
+        "/system/xbin/mknod", "/system/xbin/mkswap", "/system/xbin/mktemp",
+        "/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
+        "/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
+        "/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
+        "/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
+        "/system/xbin/nmeter", "/system/xbin/nohup", "/system/xbin/nslookup",
+        "/system/xbin/ntpd", "/system/xbin/od", "/system/xbin/openvt",
+        "/system/xbin/patch", "/system/xbin/pgrep", "/system/xbin/pidof",
+        "/system/xbin/ping", "/system/xbin/pipe_progress", "/system/xbin/pkill",
+        "/system/xbin/pmap", "/system/xbin/poweroff", "/system/xbin/printenv",
+        "/system/xbin/printf", "/system/xbin/ps", "/system/xbin/pstree",
+        "/system/xbin/pwd", "/system/xbin/pwdx", "/system/xbin/rdate",
+        "/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
+        "/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
+        "/system/xbin/restorecon", "/system/xbin/rev", "/system/xbin/rm",
+        "/system/xbin/rmdir", "/system/xbin/rmmod", "/system/xbin/route",
+        "/system/xbin/run-parts", "/system/xbin/runcon", "/system/xbin/rx",
+        "/system/xbin/sed", "/system/xbin/selinuxenabled", "/system/xbin/seq",
+        "/system/xbin/sestatus", "/system/xbin/setconsole",
+        "/system/xbin/setenforce", "/system/xbin/setfiles",
+        "/system/xbin/setkeycodes", "/system/xbin/setsebool",
+        "/system/xbin/setserial", "/system/xbin/setsid", "/system/xbin/sh",
+        "/system/xbin/sha1sum", "/system/xbin/sha256sum",
+        "/system/xbin/sha3sum", "/system/xbin/sha512sum", "/system/xbin/sleep",
+        "/system/xbin/smemcap", "/system/xbin/sort", "/system/xbin/split",
+        "/system/xbin/stat", "/system/xbin/strings", "/system/xbin/stty",
+        "/system/xbin/sum", "/system/xbin/swapoff", "/system/xbin/swapon",
+        "/system/xbin/sync", "/system/xbin/sysctl", "/system/xbin/tac",
+        "/system/xbin/tail", "/system/xbin/tar", "/system/xbin/taskset",
+        "/system/xbin/tee", "/system/xbin/telnet", "/system/xbin/telnetd",
+        "/system/xbin/test", "/system/xbin/tftp", "/system/xbin/tftpd",
+        "/system/xbin/time", "/system/xbin/timeout", "/system/xbin/top",
+        "/system/xbin/touch", "/system/xbin/tr", "/system/xbin/traceroute",
+        "/system/xbin/true", "/system/xbin/ttysize", "/system/xbin/tune2fs",
+        "/system/xbin/umount", "/system/xbin/uname", "/system/xbin/uncompress",
+        "/system/xbin/unexpand", "/system/xbin/uniq", "/system/xbin/unix2dos",
+        "/system/xbin/unlzma", "/system/xbin/unlzop", "/system/xbin/unxz",
+        "/system/xbin/unzip", "/system/xbin/uptime", "/system/xbin/usleep",
+        "/system/xbin/uudecode", "/system/xbin/uuencode", "/system/xbin/vi",
+        "/system/xbin/watch", "/system/xbin/wc", "/system/xbin/wget",
+        "/system/xbin/which", "/system/xbin/whoami", "/system/xbin/xargs",
+        "/system/xbin/xz", "/system/xbin/xzcat", "/system/xbin/yes",
+        "/system/xbin/zcat");
+symlink("dalvikvm32", "/system/bin/dalvikvm");
+symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
+symlink("mount.exfat", "/system/bin/fsck.exfat",
+        "/system/bin/mkfs.exfat");
+symlink("pigz", "/system/xbin/unpigz");
+symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
+        "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
+        "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
+        "/system/bin/dd", "/system/bin/df", "/system/bin/dmesg",
+        "/system/bin/du", "/system/bin/getenforce", "/system/bin/getevent",
+        "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
+        "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
+        "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
+        "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
+        "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
+        "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
+        "/system/bin/mkdir", "/system/bin/mknod", "/system/bin/mkswap",
+        "/system/bin/mount", "/system/bin/mv", "/system/bin/nandread",
+        "/system/bin/netstat", "/system/bin/newfs_msdos", "/system/bin/nohup",
+        "/system/bin/notify", "/system/bin/printenv", "/system/bin/prlimit",
+        "/system/bin/ps", "/system/bin/r", "/system/bin/readlink",
+        "/system/bin/renice", "/system/bin/restart", "/system/bin/restorecon",
+        "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
+        "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
+        "/system/bin/sendevent", "/system/bin/setenforce",
+        "/system/bin/setfattr", "/system/bin/setprop", "/system/bin/setsebool",
+        "/system/bin/sleep", "/system/bin/smd", "/system/bin/start",
+        "/system/bin/stop", "/system/bin/swapoff", "/system/bin/swapon",
+        "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
+        "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
+        "/system/bin/watchprops",
+        "/system/bin/wipe");
+set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/bin/flymed", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:flymed_exec:s0");
+set_metadata("/system/bin/install-recovery.sh", "uid", 0, "gid", 0, "mode", 0750, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/bin/nmbd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:nmbd_exec:s0");
+set_metadata("/system/bin/ping", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/bin/run-as", "uid", 0, "gid", 2000, "mode", 0750, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/bin/smbd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:smbd_exec:s0");
+set_metadata("/system/bin/smbpasswd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/bin/uncrypt", "uid", 0, "gid", 0, "mode", 0750, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/customizecenter", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/etc", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/NuanceVSL_v4", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/NuanceVSL_v4/DragonIDSample", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/NuanceVSL_v4/DragonIDSample/unlockphone.dat", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/NuanceVSL_v4/NSIDData", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/acdbdata", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/acdbdata/MTP", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/acdbdata/QRD", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/bash", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/bluetooth", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/boot_fixup", "uid", 0, "gid", 0, "mode", 0666, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/channel", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/etc/cne", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/dhcpcd", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/dhcpcd/dhcpcd-hooks", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/dhcpcd/dhcpcd-hooks", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/diag_logs", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/diag_logs/Diag.cfg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/dolby", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/dolby/ds1-default.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/firmware", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/firmware/irda", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/firmware/irda/irda_top_bitmap.bin", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/firmware/wcd9306", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/firmware/wlan", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/firmware/wlan/prima/WCNSS_cfg.dat", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/hostapd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/logmask", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/nano", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/permissions", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/security", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/security/cacerts", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/smartpa_fw", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/ssh", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/ssh/sshd_config", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/surround_sound", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/E", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/terminfo/a", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/a/ansi", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/c", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/terminfo/d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/d/dumb", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/terminfo/h", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/h/hurd", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/terminfo/l", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/l/linux", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/m", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/etc/terminfo/p", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/p/pcansi", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/r", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/s", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/v", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/w", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/terminfo/x", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/voicesense", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/etc/wifi", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/fonts/DINPro-Black.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/DINPro-Bold.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/DINPro-Light.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/DINPro-Medium.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/DINPro-Regular.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/Flyme-Light.ttf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/NotoSansHans-Regular.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/NotoSansHant-Regular.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/NotoSansKR-Regular.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/SmartZawgyi.ttf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/SourceHanSansCN-ExtraLight.ttf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/fonts/SourceHanSansCN-Light.otf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/framework", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libDominantColors.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libRefocusModule.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libTmsdk-2.0.8-mfr.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libamapv303.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libamapv303ex.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libams-1.1.7-m-mfr.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libams-1.1.7-mfr.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libaudioinfo_jni.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libdce-1.1.6-mfr.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libdlna_jni.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libeffects_filters.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libeffects_mosaic.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libexif_gallery.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libimage_codec.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libimage_dehazing.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libimageproc.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libipc_pref.527.1.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libjni_gallery_utils.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libjni_gauss_blur.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libjni_glrenderer.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libjni_systemuitools.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libkanbox_meizu_gallery_sdk.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libmcode_image.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libmobilesafe360-sdk-jni-524.2.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libnative_blur.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libnative_glrenderer.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libpatch-1.0.1.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libphoto_process.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/librender_engine.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libskia_hw_interface.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libskia_private.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libspecific.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libtaglib.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libtbt.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libttssuitemsc.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libupdate-jni-1.0.1.2002.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libvlife_media.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libvlife_openglutil.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib/libvlife_render.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/media/audio/alarms", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/alarms", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Alarm_Beep_01.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Alarm_Beep_02.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Alarm_Beep_03.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Alarm_Buzzer.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Alarm_Rooster_02.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Argon.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Barium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Carbon.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Cesium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/CyanAlarm.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Fermium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Helium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Krypton.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Neon.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Neptunium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Nobelium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/NuclearLaunch.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Osmium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Oxygen.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Platinum.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/alarms/Scandium.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/media/audio/notifications/01_Triumph.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/02_Reminder.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/03_Doorbell.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/04_Promotion.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/05_Little_Crystal.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/06_Arrival.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/07_Cleverer.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/08_Agile.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/09_Red_Wine_Cork.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/10_Tapping.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/11_Drop.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/12_Connect.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/13_Spining.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/14_Gift.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/15_Blow.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/16_Pure.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/17_Beating.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/18_Naughty.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/19_Chocolate.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/20_Code_Word.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/21_Corner.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/22_Empire.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/23_Jump.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/24_Laputa.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/25_Meteor.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/26_Ripples.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/27_Shining.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/28_Silent_Night.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/29_The_North_Star.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/notifications/30_The_time_tunne.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/01_Piano.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/02_Digital.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/03_Flyme.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/04_Music_box.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/05_Technology.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/06_Guitar.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/07_Marimba.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/08_Mischief.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/09_Crystal.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/10_Progress.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/11_The_kittens.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/12_Morning_song.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/13_Call_of_love.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/14_Tumbler.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/15_Journey_begins.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/16_New_life.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/17_Heartbeat.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/18_East_Ville_memory.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/19_Waltz.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/20_The_cantor.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/21_Passion.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/22_Journey.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/23_Game.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/24_Rain_dance.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/25_Twilight_dance.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/26_Foredawn.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/27_Home.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/28_Blues.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/29_Dash.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/30_Machine.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/31_Telephone.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/32_Beeper.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/33_After_school.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/34_Mario.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/35_Nighty_night.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/36_Soaring.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/37_Childhood.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/38_Morning_run.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/39_Sweetheart.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ringtones/40_Curtain_call.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/boot.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/camera_click_burst.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/charged.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/keyloud.wav", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/list_hold_sound.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/msgNotifyIncompose.wav", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/plugin.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/recorder_prompt_cn.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/recorder_prompt_en.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/audio/ui/recorder_prompt_end.ogg", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/launcher.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/media/shutanimation.zip", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/priv-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/priv-app", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/BackupRestoreConfirmation", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/CalendarProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/ContactsProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/DefaultContainerService", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/DeviceOriginalSettings", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/priv-app/Dialer", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/DownloadProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/ExternalStorageProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/FusedLocation", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/InputDevices", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/ManagedProvisioning", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/MediaProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/priv-app/Mms", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/priv-app/Mms/Mms.apk", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/MmsService", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/ProxyHandler", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/Settings", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/SettingsProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/SharedStorageBackup", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/Shell", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/priv-app/SystemUI", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/priv-app/SystemUI/SystemUI.apk", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/TeleService", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/Telecom", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/TelephonyProvider", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/VpnDialogs", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/priv-app/WallpaperCropper", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/etc", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/vendor/lib/drm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/drm/libdrmprplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/egl", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/hw", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/vendor/lib/mediadrm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/rfsa", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/rfsa/adsp", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/vendor/lib/soundfx", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/xbin/librank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "unlabeled");
+set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "unlabeled");
+show_progress(0.050000, 5);
+package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+show_progress(0.200000, 10);
+package_extract_dir("data", "/data");
+symlink("/data/sys-app", "/system/app");
+symlink("/system/lib/libIvw40.so", "/data/sys-app/IflytekSpeechService/lib/arm/libIvw40.so");
+symlink("/system/lib/libTmsdk-2.0.8-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libTmsdk-2.0.8-mfr.so");
+symlink("/system/lib/libams-1.1.7-m-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libams-1.1.7-m-mfr.so");
+symlink("/system/lib/libams-1.1.7-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libams-1.1.7-mfr.so");
+symlink("/system/lib/libbluetooth_jni.so", "/data/sys-app/Bluetooth/lib/arm/libbluetooth_jni.so");
+symlink("/system/lib/libdce-1.1.6-mfr.so", "/data/sys-app/MzSecurity/lib/arm/libdce-1.1.6-mfr.so");
+symlink("/system/lib/libipc_pref.527.1.so", "/data/sys-app/MzSecurity/lib/arm/libipc_pref.527.1.so");
+symlink("/system/lib/libjni_pacprocessor.so", "/data/sys-app/PacProcessor/lib/arm/libjni_pacprocessor.so");
+symlink("/system/lib/libmobilesafe360-sdk-jni-524.2.so", "/data/sys-app/MzSecurity/lib/arm/libmobilesafe360-sdk-jni-524.2.so");
+symlink("/system/lib/libnfc_nci_jni.so", "/data/sys-app/NfcNci/lib/arm/libnfc_nci_jni.so");
+symlink("/system/lib/libprintspooler_jni.so", "/data/sys-app/PrintSpooler/lib/arm/libprintspooler_jni.so");
+symlink("/system/lib/libttscompat.so", "/data/sys-app/PicoTts/lib/arm/libttscompat.so");
+symlink("/system/lib/libttspico.so", "/data/sys-app/PicoTts/lib/arm/libttspico.so");
+symlink("/system/lib/libttssuitemsc.so", "/data/sys-app/IflytekSpeechService/lib/arm/libttssuitemsc.so");
+symlink("/system/lib/libupdate-jni-1.0.1.2002.so", "/data/sys-app/MzSecurity/lib/arm/libupdate-jni-1.0.1.2002.so");
+symlink("/system/lib/libwebviewchromium.so", "/data/sys-app/webview/lib/arm/libwebviewchromium.so");
+set_metadata_recursive("/data/sys-app", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0);
+set_metadata_recursive("/data/sys-app/Map/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/MzCompaign/lib/arm/libplugin_phone.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-app/MzPay/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-app/Life", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-app/MzSecurity/lib/arm", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/O2OService/lib/arm/libimageproc.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/O2OService/lib/arm/libtbt.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/O2OService/lib/arm/libDominantColors.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-app/Search", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/data/sys-app/Reader/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/AppCenter/lib/arm/libblur.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/sys-app/Camera/lib/arm/libpanorama.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "unlabeled");
+unmount("/system");
