@@ -74,7 +74,6 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/custom_screencolor" android:name=".CustomScreenColor" android:screenOrientation="nosensor"/>
         <activity android:label="@string/settings_label_launcher" android:launchMode="singleTask" android:name="Settings" android:taskAffinity="com.flyme.DeviceOriginalSettings">
             <intent-filter>
-                <action android:name="android.settings.SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <meta-data android:name="com.flyme.DeviceOriginalSettings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>

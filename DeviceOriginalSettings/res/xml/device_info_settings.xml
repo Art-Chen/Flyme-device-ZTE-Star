@@ -2,6 +2,9 @@
 <PreferenceScreen android:title="@string/about_settings"
   xmlns:android="http://schemas.android.com/apk/res/android">
   <Preference android:title="ROMer" android:summary="Art_Chen" style="?android:preferenceInformationStyle" />
+    <PreferenceScreen android:title="@string/regulatory_information" android:key="regulatory_info">
+        <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
+    </PreferenceScreen>
     <Preference android:title="@string/model_name" android:key="device_model" android:summary="@string/device_info_default" style="?android:preferenceInformationStyle" />
     <Preference android:title="@string/mod_version" android:key="mod_version" android:summary="@string/mod_version_default" style="?android:preferenceInformationStyle" />
     <Preference android:title="@string/firmware_version" android:key="firmware_version" android:summary="@string/device_info_default" style="?android:preferenceInformationStyle" />

@@ -108,7 +108,7 @@
 
 .field static final TRANSACTION_getDefaultSim:I = 0x4e
 
-.field static final TRANSACTION_getDeviceId_118:I = 0x77
+.field static final TRANSACTION_getDeviceId_118:I = 0x78
 
 .field static final TRANSACTION_getIccOperatorNumeric:I = 0x43
 
@@ -179,6 +179,8 @@
 .field static final TRANSACTION_isIdle:I = 0xd
 
 .field static final TRANSACTION_isIdleForSubscriber:I = 0xe
+
+.field static final TRANSACTION_isImsRegistered:I = 0x77
 
 .field static final TRANSACTION_isOffhook:I = 0x9
 
@@ -5381,6 +5383,44 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 1281
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephony$Stub;->isImsRegistered()Z
+
+    move-result v16
+
+    .line 1282
+    .restart local v16    # "_result":Z
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 1283
+    if-eqz v16, :cond_35
+
+    const/4 v2, 0x1
+
+    :goto_36
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1284
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    .line 1283
+    :cond_35
+    const/4 v2, 0x0
+
+    goto :goto_36
+
+    .line 1288
+    .end local v16    # "_result":Z
+    :sswitch_78
+    const-string v2, "com.android.internal.telephony.ITelephony"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephony$Stub;->getDeviceId()Ljava/lang/String;
 
     move-result-object v16
@@ -5402,6 +5442,8 @@
     goto/16 :goto_0
 
     .line 45
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -5523,6 +5565,7 @@
         0x75 -> :sswitch_75
         0x76 -> :sswitch_76
         0x77 -> :sswitch_77
+        0x78 -> :sswitch_78
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method
